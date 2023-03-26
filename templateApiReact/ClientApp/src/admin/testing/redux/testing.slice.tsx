@@ -44,13 +44,16 @@ export const testingCreateSlice = createSlice ({
     }
 })
 
-export const{
-    resetState,
-    setTestingStatusName
-} = testingCreateSlice.actions
+// export const{
+//     resetState,
+//     setTestingStatusName
+// } = testingCreateSlice.actions
 
-//export default testingCreateSlice.reducer;
+// //export default testingCreateSlice.reducer;
 
+// export const testingReducer = testingCreateSlice.reducer;
+
+export const {resetState, setTestingStatusName}= testingCreateSlice.actions;
 export const testingReducer = testingCreateSlice.reducer;
 
 
