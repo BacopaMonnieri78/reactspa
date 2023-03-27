@@ -1,5 +1,5 @@
-import {  createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ITestingPropertyLanguage } from "../../models/testingPropertyNodeModel";
+import {  createSlice } from "@reduxjs/toolkit";
+
 import { TestingOverviewState } from "./testing.model";
 
 const initialState : TestingOverviewState = {
@@ -32,9 +32,19 @@ export const testingCreateSlice = createSlice ({
             state.command= initialState.command;
             state.loadedData= initialState.loadedData;
         },
-        setTestingStatusName :(state, action: PayloadAction<ITestingPropertyLanguage>)=> {
+        // setTestingStatusName :(state, action: PayloadAction<ITestingPropertyLanguage>)=> {
             
-            state.data.setdata = action.payload;
+        //     //state.data.setdata = action.payload;
+
+        //     state.data.setdata.index=0;
+        //     state.data.setdata.name="Hello World"
+        // }
+        setTestingStatusName :(state)=> {
+            
+            //state.data.setdata = action.payload;
+
+            state.data.setdata.index=0;
+            state.data.setdata.name="Hello World"
         }
 
     },

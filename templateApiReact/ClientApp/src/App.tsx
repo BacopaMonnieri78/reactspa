@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { TestingComponent } from './admin/testing/testing.component';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn Reactr hello world
+
+          <TestingComponent/>
         </a>
       </header>
     </div>
