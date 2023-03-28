@@ -1,6 +1,7 @@
 import {  createSlice } from "@reduxjs/toolkit";
 
 import { TestingOverviewState } from "./testing.model";
+import { getTestingComponent } from "./testing.redux";
 
 const initialState : TestingOverviewState = {
     loadedData: {
@@ -47,10 +48,19 @@ export const testingCreateSlice = createSlice ({
             state.data.setdata.name="Hello World"
         }
 
-    },
-    extraReducers: (builder)=> {
+    },extraReducers: (builder)=> {
 
-        //builder.addCase()
+        builder.addCase(getTestingComponent.pending, (state)=> {
+          state.command.testingRequest.status ="pending";
+          state.command.testingRequest.canExecute= false; 
+        }).addCase(getTestingComponent.rejected,(state)=> {
+            state.command.testingRequest.status ="error";
+            state.command.testingRequest.canExecute= false; 
+        }).addCase(getTestingComponent.fulfilled, (state)=> {
+            state.command.testingRequest.status ="success";
+            //todo override slice with action.payload.getdata
+            
+        });
     }
 })
 
