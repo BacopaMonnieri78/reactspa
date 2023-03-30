@@ -56,10 +56,10 @@ export const testingCreateSlice = createSlice ({
         }).addCase(getTestingComponent.rejected,(state)=> {
             state.command.testingRequest.status ="error";
             state.command.testingRequest.canExecute= false; 
-        }).addCase(getTestingComponent.fulfilled, (state)=> {
+        }).addCase(getTestingComponent.fulfilled, (state, action)=> {
             state.command.testingRequest.status ="success";
             //todo override slice with action.payload.getdata
-            
+            state.data.setdata = action.payload;
         });
     }
 })
