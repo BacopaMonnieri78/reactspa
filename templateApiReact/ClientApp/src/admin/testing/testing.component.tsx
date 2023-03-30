@@ -7,7 +7,7 @@ import { getTestingComponent, init } from './redux/testing.redux';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import List from '@mui/material/List';
-import { setName, sumbitButton } from './redux/testing.slice';
+import { removeButton, setName, sumbitButton } from './redux/testing.slice';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
@@ -47,8 +47,10 @@ useEffect(()=> {
     <div>
       <List>
         {state.loadedData.loadingTestingModel.map((entry)=> 
-          <ListItem disablePadding>
-            <ListItemText primary={entry.name} />
+          <ListItem disablePadding >
+            <ListItemText primary={entry.name} key={entry.index}/>
+            
+            <Button onClick={()=>dispatch(removeButton(entry.index))} variant="contained">Delete</Button>
         </ListItem>
         )}
       </List>

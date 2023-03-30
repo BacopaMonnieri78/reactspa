@@ -38,13 +38,12 @@ export const testingCreateSlice = createSlice ({
                 getnewPropertyLanguage.index = state.loadedData.loadingTestingModel.length;
 
             state.loadedData.loadingTestingModel.push(getnewPropertyLanguage);
-
-
-
         }),
-
-        
-
+        removeButton: (state, action: PayloadAction<number>)=> {
+            let getPropertyLanguageList= state.loadedData.loadingTestingModel;
+            let filter= getPropertyLanguageList.filter((entry)=> { return entry.index !== action.payload});
+            state.loadedData.loadingTestingModel= filter;
+        },
     },extraReducers: (builder)=> {
 
         builder.addCase(getTestingComponent.pending, (state)=> {
@@ -55,7 +54,6 @@ export const testingCreateSlice = createSlice ({
             state.command.testingRequest.canExecute= false; 
         }).addCase(getTestingComponent.fulfilled, (state, action)=> {
             state.command.testingRequest.status ="success";
-            //todo override slice with action.payload.getdata
             state.data.setdata = action.payload;
         }).addCase(init.pending, (state)=> {
             state.command.testingRequestAll.status ="pending";
@@ -71,7 +69,7 @@ export const testingCreateSlice = createSlice ({
 })
 
 
-export const {resetState, setName, sumbitButton}= testingCreateSlice.actions;
+export const {resetState, setName, sumbitButton, removeButton}= testingCreateSlice.actions;
 export const testingReducer = testingCreateSlice.reducer;
 
 
