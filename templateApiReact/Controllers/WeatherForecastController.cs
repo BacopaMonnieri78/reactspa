@@ -42,6 +42,36 @@ namespace templateApiReact.Controllers
 
             return testingprop;
         }
+
+        [HttpGet("GetAll")]
+        public IEnumerable<TestingPropertyLanguage>GetAll(){
+
+            var testingprop = new List<TestingPropertyLanguage>{
+
+                new TestingPropertyLanguage{
+                     Index= 1,
+                    Name="TestingGet"
+                },
+                new TestingPropertyLanguage{
+                    Index=2,
+                    Name="Travis"
+                },
+                new TestingPropertyLanguage{
+                    Index=3,
+                    Name="Marry"
+                },
+                 new TestingPropertyLanguage{
+                    Index=4,
+                    Name="Jaden"
+                },
+                new TestingPropertyLanguage{
+                    Index=5,
+                    Name="Test"
+                },
+            };
+
+            return testingprop;
+        }
     }
 }
 

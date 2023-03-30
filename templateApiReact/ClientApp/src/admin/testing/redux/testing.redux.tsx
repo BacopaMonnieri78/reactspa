@@ -54,4 +54,21 @@ export const getTestingComponent = createAsyncThunk(
 )
 
 
+export const init = createAsyncThunk(
+  'users/fetchalldata',
+  async (_, {getState, signal }) => {
+    const source = axios.CancelToken.source()
+    signal.addEventListener('abort', () => {
+      source.cancel()
+    })
+
+    //const state = getState() as RootState;
+    const response = await axios.get('https://localhost:7263/WeatherForecast/GetAll', {
+      cancelToken: source.token,
+    })
+    return response.data
+  }
+)
+
+
 // class Testing extends useHttpService

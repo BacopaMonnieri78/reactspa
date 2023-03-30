@@ -1,19 +1,16 @@
-import {  createSlice } from "@reduxjs/toolkit";
+import {  createSlice, PayloadAction } from "@reduxjs/toolkit";
+//import { ITestingPropertyLanguage } from "../../models/testingPropertyNodeModel";
 
 import { TestingOverviewState } from "./testing.model";
-import { getTestingComponent } from "./testing.redux";
+import { getTestingComponent, init } from "./testing.redux";
 
 const initialState : TestingOverviewState = {
     loadedData: {
-        loadingTestingModel: {
-            index: 0,
-            name: ''
-        },
-
-        
+        loadingTestingModel: [],
     },
     command: {
-        testingRequest: {status: "idle", canExecute : false}
+        testingRequest: {status: "idle", canExecute : false},
+        testingRequestAll: {status: "idle", canExecute : false}
         
     },
     data: {
@@ -33,20 +30,20 @@ export const testingCreateSlice = createSlice ({
             state.command= initialState.command;
             state.loadedData= initialState.loadedData;
         },
-        // setTestingStatusName :(state, action: PayloadAction<ITestingPropertyLanguage>)=> {
-            
-        //     //state.data.setdata = action.payload;
+        setName :(state, action: PayloadAction<string> )=> {
+            state.data.setdata.name=action.payload;
+        },
+        sumbitButton: (state=> {
+            let getnewPropertyLanguage =  state.data.setdata;
+                getnewPropertyLanguage.index = state.loadedData.loadingTestingModel.length;
 
-        //     state.data.setdata.index=0;
-        //     state.data.setdata.name="Hello World"
-        // }
-        setTestingStatusName :(state)=> {
-            
-            //state.data.setdata = action.payload;
+            state.loadedData.loadingTestingModel.push(getnewPropertyLanguage);
 
-            state.data.setdata.index=0;
-            state.data.setdata.name="Hello World"
-        }
+
+
+        }),
+
+        
 
     },extraReducers: (builder)=> {
 
@@ -60,12 +57,21 @@ export const testingCreateSlice = createSlice ({
             state.command.testingRequest.status ="success";
             //todo override slice with action.payload.getdata
             state.data.setdata = action.payload;
+        }).addCase(init.pending, (state)=> {
+            state.command.testingRequestAll.status ="pending";
+            state.command.testingRequestAll.canExecute = false;
+        }).addCase(init.rejected,(state)=> {
+            state.command.testingRequestAll.status ="error";
+            state.command.testingRequestAll.canExecute = false;
+        }).addCase(init.fulfilled, (state, action)=> {
+            state.command.testingRequestAll.status ="success";
+            state.loadedData.loadingTestingModel = action.payload;
         });
     }
 })
 
 
-export const {resetState, setTestingStatusName}= testingCreateSlice.actions;
+export const {resetState, setName, sumbitButton}= testingCreateSlice.actions;
 export const testingReducer = testingCreateSlice.reducer;
 
 
