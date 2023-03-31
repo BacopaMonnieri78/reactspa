@@ -1,12 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
+// import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import { TestingComponent } from './admin/testing/testing.component';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -17,7 +18,16 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn Reactr hello world
-        </a>
+
+          <TestingComponent/>
+        </a> */}
+        <>
+        <h2>TestingProject</h2>
+        <p>This Project was build with react and C#</p>
+        <p>I Used the following NPM Packets:</p>
+        <TestingComponent/>
+        </>
+        
       </header>
     </div>
   );
