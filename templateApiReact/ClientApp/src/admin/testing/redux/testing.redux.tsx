@@ -44,7 +44,7 @@ export const deleteTestingComponent = createAsyncThunk(
     })
 
     const state = getState() as RootState;
-    const response = await axios.delete(`https://localhost:7263/WeatherForecast/delete/${state.testingStore.data.setdata.index}`, {
+    const response = await axios.delete(`https://localhost:7263/WeatherForecast/Delete/${state.testingStore.data.removeId}`, {
       cancelToken: source.token,
     })
     return response.data
@@ -76,10 +76,12 @@ export const AddTestingComponent = createAsyncThunk(
     })
 
     const state = getState() as RootState;
-    const response = await axios.post(`https://localhost:7263/WeatherForecast/Add/${state.testingStore.data.setdata.index}`, {
-      cancelToken: source.token,
-    })
+    const response = await axios.post('https://localhost:7263/WeatherForecast/AddTestingComponent', state.testingStore.data.setdata, )
+    
     return response.data
+
+
+    
   }
 )
 

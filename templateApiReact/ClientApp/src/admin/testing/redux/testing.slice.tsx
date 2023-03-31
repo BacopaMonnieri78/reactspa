@@ -17,7 +17,8 @@ const initialState : TestingOverviewState = {
         setdata: {
             index: 0,
             name: ''
-        }
+        },
+        removeId: 0,
     }
 }
 
@@ -43,6 +44,8 @@ export const testingCreateSlice = createSlice ({
             let getPropertyLanguageList= state.loadedData.loadingTestingModel;
             let filter= getPropertyLanguageList.filter((entry)=> { return entry.index !== action.payload});
             state.loadedData.loadingTestingModel= filter;
+
+            state.data.removeId = action.payload;
         },
     },extraReducers: (builder)=> {
 

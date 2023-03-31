@@ -11,5 +11,6 @@ export interface TestingOverviewState{
 
     data:{
             setdata: ITestingPropertyLanguage,
+            removeId: number;
     }
 }

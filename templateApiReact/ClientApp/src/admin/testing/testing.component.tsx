@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { AppDispatch } from '../../store/redux_store'
-import { getTestingComponent, init } from './redux/testing.redux';
+import { deleteTestingComponent, getTestingComponent, init } from './redux/testing.redux';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import List from '@mui/material/List';
@@ -37,6 +37,17 @@ useEffect(()=> {
   
 },[dispatch])
 
+
+
+const deleteItem = (index: number) => {
+
+  console.log(index,"deleteNumber");
+
+  dispatch(removeButton(index));
+  dispatch(deleteTestingComponent())
+
+}
+
   return (
    <>
     <div>
@@ -50,7 +61,7 @@ useEffect(()=> {
           <ListItem disablePadding >
             <ListItemText primary={entry.name} key={entry.index}/>
             
-            <Button onClick={()=>dispatch(removeButton(entry.index))} variant="contained">Delete</Button>
+            <Button onClick={()=>(deleteItem(entry.index))} variant="contained">Delete</Button>
         </ListItem>
         )}
       </List>

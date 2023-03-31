@@ -72,6 +72,23 @@ namespace templateApiReact.Controllers
 
             return testingprop;
         }
+
+         [HttpDelete("{id}")]
+         public async Task< bool >Delete([FromRoute] int id)
+         {
+
+             
+            //todo database query
+
+            return true;
+         }
+
+
+         [HttpPost("AddTestingComponent")]
+         public bool Add (TestingPropertyLanguage testingPropertyLanguage){
+
+            return true;
+         }
     }
 }
 
