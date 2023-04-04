@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { counterReducer } from '../admin/counter/redux/counter.slices';
 import { testingReducer } from '../admin/testing/redux/testing.slice';
 
-//todo import slice
+
  const store = configureStore({
     reducer:{
         
         testingStore: testingReducer,
+        countStore: counterReducer,
     },
 });
 
