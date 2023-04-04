@@ -1,13 +1,15 @@
 // import React from 'react';
 // import logo from './logo.svg';
+import { Outlet } from 'react-router-dom';
 import './App.css';
-import { TestingComponent } from './admin/testing/testing.component';
+//import { TestingComponent } from './admin/testing/testing.component';
+import { NavigationComponent } from './admin/Navigation/navigation.component';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
+      {/* <header className="App-header">
+         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -20,15 +22,21 @@ function App() {
           Learn Reactr hello world
 
           <TestingComponent/>
-        </a> */}
-        <>
-        <h2>TestingProject</h2>
-        <p>This Project was build with react and C#</p>
-        <p>I Used the following NPM Packets:</p>
-        <TestingComponent/>
-        </>
+        </a> 
+              
         
-      </header>
+        
+      </header> */}
+
+      <>
+        <NavigationComponent/>
+        <Outlet/>
+
+        {/* <h2>TestingProject</h2>
+          <p>This Project was build with react and C#</p>
+          <p>I Used the following NPM Packets:</p>
+          <TestingComponent/> */}
+        </>
     </div>
   );
 }

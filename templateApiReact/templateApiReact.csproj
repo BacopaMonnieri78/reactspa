@@ -24,6 +24,25 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\src\admin\counter\counter.component.tsx" />
+    <None Remove="ClientApp\src\admin\home\home.component.tsx" />
+    <None Remove="ClientApp\src\admin\Navigation\navigation.component.tsx" />
+    <None Remove="ClientApp\src\AppRoutes.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\admin\counter\counter.component.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\admin\home\home.component.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\admin\Navigation\navigation.component.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\AppRoutes.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\admin\counter\redux\" />
+    <Folder Include="ClientApp\src\admin\home\redux\" />
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
