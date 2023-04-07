@@ -9,9 +9,9 @@ export const NavigationComponent = () => {
         <>
           <Navbar >
             <Container>
-              <Navbar.Brand as={Link} to='/'>Navbar</Navbar.Brand>
+              <Navbar.Brand as={Link} to='/home'>Navbar</Navbar.Brand>
               <Nav className="mt-auto">
-                <Nav.Link as={Link} to='/' >Home</Nav.Link>
+                <Nav.Link as={Link} to='/home' >Home</Nav.Link>
                 <Nav.Link as={Link} to= '/counter'>Counter</Nav.Link>
                 <Nav.Link as={Link} to='/testing'>Testing</Nav.Link>
               </Nav>

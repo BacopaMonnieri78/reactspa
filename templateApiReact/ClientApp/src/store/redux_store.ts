@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { counterReducer } from '../admin/counter/redux/counter.slices';
+//import { counterReducer } from '../admin/counter/redux/counter.slices';
 import { testingReducer } from '../admin/testing/redux/testing.slice';
 
 
@@ -7,7 +7,7 @@ import { testingReducer } from '../admin/testing/redux/testing.slice';
     reducer:{
         
         testingStore: testingReducer,
-        countStore: counterReducer,
+        //countStore: counterReducer,
     },
 });
 
