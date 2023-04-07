@@ -10,6 +10,7 @@ import App from './App';
 import { CounterComponent } from './admin/counter/counter.component';
 import { TestingComponent } from './admin/testing/testing.component';
 import ErrorPageOverview from './admin/errorPage/errorpage';
+import HomeComponent from './admin/home/home.component';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement: <ErrorPageOverview/>,
     children:[
+      {
+        path:"/home",
+        element : <HomeComponent/>
+      }, 
       {
         path:"/counter",
         element : <CounterComponent/>
